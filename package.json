@@ -1,7 +1,7 @@
 {
   "name": "dianvo-native-android-xupdate",
   "version": "0.1.0",
-  "description": "fix some bug and portability of react-native-xupdate",
+  "description": "git init",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -43,9 +43,6 @@
     "url": "https://github.com/DeepRolling/dianvo-native-android-xupdate/issues"
   },
   "homepage": "https://github.com/DeepRolling/dianvo-native-android-xupdate#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
     "@react-native-community/eslint-config": "^2.0.0",
@@ -77,12 +74,6 @@
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn typescript"
-    }
   },
   "commitlint": {
     "extends": [

@@ -8,7 +8,7 @@ import com.facebook.react.uimanager.ViewManager
 
 class DianvoNativeAndroidXupdatePackage : ReactPackage {
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-        return listOf(DianvoNativeAndroidXupdateModule(reactContext))
+        return listOf(RNXUpdateModule(reactContext))
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
