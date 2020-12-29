@@ -10,28 +10,28 @@ RCT_EXPORT_METHOD(initXUpdate:(NSDictionary*)map resolver:(RCTPromiseResolveBloc
 {
 //  NSNumber *result = @([a floatValue] * [b floatValue]);
 
-  resolve(null);
+  resolve(nil);
 }
 
 RCT_EXPORT_METHOD(checkUpdate:(NSDictionary*)map resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
 //  NSNumber *result = @([a floatValue] * [b floatValue]);
 
-  resolve(null);
+  resolve(nil);
 }
 
 RCT_EXPORT_METHOD(updateByUpdateEntity:(NSDictionary*)map resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
 //  NSNumber *result = @([a floatValue] * [b floatValue]);
 
-  resolve(null);
+  resolve(nil);
 }
 
 RCT_EXPORT_METHOD(onCustomUpdateParse:(NSDictionary*)map)
 {
 //  NSNumber *result = @([a floatValue] * [b floatValue]);
 
-//  resolve(null);
+//  resolve(nil);
 }
 
 
@@ -39,7 +39,7 @@ RCT_EXPORT_METHOD(showRetryUpdateTipDialog:(NSDictionary*)map)
 {
 //  NSNumber *result = @([a floatValue] * [b floatValue]);
 
-//  resolve(null);
+//  resolve(nil);
 }
 
 @end
