@@ -1,6 +1,6 @@
-import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
+import { NativeEventEmitter, NativeModules } from 'react-native';
 
-const { RNXUpdate } = NativeModules;
+const { DianvoNativeAndroidXupdate } = NativeModules;
 
 ///XUpdate初始化参数
 class InitArgs {
@@ -67,7 +67,7 @@ class UpdateArgs {
   }
 }
 
-const EventEmitter = new NativeEventEmitter(RNXUpdate);
+const EventEmitter = new NativeEventEmitter(DianvoNativeAndroidXupdate);
 
 class UpdateParser {
   parseJson: (json: string) => UpdateEntity;
@@ -117,7 +117,7 @@ const XUpdate = {
       return 'IOS端暂不支持';
     }
 
-    return RNXUpdate.initXUpdate({
+    return DianvoNativeAndroidXupdate.initXUpdate({
       debug: initArg.debug,
       isGet: !initArg.isPost,
       isPostJson: initArg.isPostJson,
@@ -135,7 +135,7 @@ const XUpdate = {
   setCustomParser: (parser: UpdateParser) => {
     EventEmitter.addListener(KEY_JSON_EVENT, (json) => {
       if (parser !== null) {
-        RNXUpdate.onCustomUpdateParse(parser.parseJson(json));
+        DianvoNativeAndroidXupdate.onCustomUpdateParse(parser.parseJson(json));
       }
     });
   },
@@ -162,7 +162,7 @@ const XUpdate = {
       return 'url can not be null or empty！';
     }
 
-    return RNXUpdate.checkUpdate({
+    return DianvoNativeAndroidXupdate.checkUpdate({
       url: updateArgs.url,
       params: updateArgs.params,
       supportBackgroundUpdate: updateArgs.supportBackgroundUpdate,
@@ -186,7 +186,7 @@ const XUpdate = {
       return 'IOS端暂不支持';
     }
 
-    return RNXUpdate.updateByUpdateEntity({
+    return DianvoNativeAndroidXupdate.updateByUpdateEntity({
       updateEntity: updateEntity,
       supportBackgroundUpdate: updateArgs.supportBackgroundUpdate,
       isAutoMode: updateArgs.isAutoMode,
@@ -207,7 +207,7 @@ const XUpdate = {
       return;
     }
 
-    RNXUpdate.showRetryUpdateTipDialog({
+    DianvoNativeAndroidXupdate.showRetryUpdateTipDialog({
       retryContent: retryContent,
       retryUrl: retryUrl,
     });
