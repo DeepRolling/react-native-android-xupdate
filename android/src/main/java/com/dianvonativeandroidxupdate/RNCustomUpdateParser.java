@@ -9,7 +9,8 @@ import com.xuexiang.xupdate.proxy.IUpdateParser;
 
 import java.lang.ref.WeakReference;
 
-import static com.xuexiang.rn.xupdate.RNXUpdateModule.KEY_JSON_EVENT;
+import static com.dianvonativeandroidxupdate.RNXUpdateModule.KEY_JSON_EVENT;
+
 
 /**
  * Flutter端自定义版本更新解析器
