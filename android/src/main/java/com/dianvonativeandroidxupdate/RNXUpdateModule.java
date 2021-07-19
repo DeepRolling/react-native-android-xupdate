@@ -241,7 +241,7 @@ public class RNXUpdateModule extends ReactContextBaseJavaModule {
             builder.promptThemeColor(Color.parseColor(themeColor));
         }
         if (!TextUtils.isEmpty(topImageRes)) {
-            int topImageResId = mApplication.getCurrentActivity().getResources().getIdentifier(topImageRes, "drawable", mApplication.getCurrentActivity().getPackageName());
+            int topImageResId = mApplication.getCurrentActivity().getResources().getIdentifier(topImageRes, "mipmap", mApplication.getCurrentActivity().getPackageName());
             builder.promptTopResId(topImageResId);
         }
         if (!TextUtils.isEmpty(buttonTextColor)) {
