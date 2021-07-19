@@ -18,9 +18,9 @@ package com.dianvonativeandroidxupdate;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
 import com.xuexiang.xupdate.logs.UpdateLog;
 import com.xuexiang.xupdate.proxy.IUpdateHttpService;
-import com.xuexiang.xupdate.utils.UpdateUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.FileCallBack;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -91,7 +91,7 @@ public class OKHttpUpdateHttpService implements IUpdateHttpService {
         if (mIsPostJson) {
             requestCall = OkHttpUtils.postString()
                     .url(url)
-                    .content(UpdateUtils.toJson(params))
+                    .content(new Gson().toJson(params))
                     .mediaType(MediaType.parse("application/json; charset=utf-8"))
                     .build();
         } else {
