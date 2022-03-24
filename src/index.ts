@@ -1,9 +1,20 @@
-import { NativeEventEmitter, NativeModules } from 'react-native';
+import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
 
 const { DianvoNativeAndroidXupdate } = NativeModules;
 
 ///XUpdate初始化参数
 class InitArgs {
+  debug: boolean;
+  isPost: boolean;
+  isPostJson: boolean;
+  timeout: number;
+  isWifiOnly: boolean;
+  isAutoMode: boolean;
+  supportSilentInstall: boolean;
+  enableRetry: boolean;
+  retryContent: string;
+  retryUrl: string;
+  params: object;
   constructor() {
     ///是否输出日志
     this.debug = false;
@@ -35,6 +46,20 @@ const KEY_JSON_EVENT = 'XUpdate_Json_Event';
 
 ///版本更新参数
 class UpdateArgs {
+  url: string;
+  params: object;
+  supportBackgroundUpdate: boolean;
+  isAutoMode: boolean;
+  isCustomParse: boolean;
+  themeColor: string;
+  topImageRes: string;
+  buttonTextColor: string;
+  widthRatio: number;
+  heightRatio: number;
+  overrideGlobalRetryStrategy: boolean;
+  enableRetry: boolean;
+  retryContent: string;
+  retryUrl: string;
   constructor(url: string) {
     ///版本检查的地址
     this.url = url;
@@ -72,7 +97,7 @@ const EventEmitter = new NativeEventEmitter(DianvoNativeAndroidXupdate);
 class UpdateParser {
   parseJson: (json: string) => UpdateEntity;
 
-  constructor(parser) {
+  constructor(parser: (json: string) => UpdateEntity) {
     this.parseJson = parser;
   }
 }
@@ -82,9 +107,9 @@ class UpdateEntity {
   ///是否有新版本
   hasUpdate: boolean;
   ///是否强制安装：不安装无法使用app
-  isForce: boolean;
+  isForce: boolean | undefined;
   ///是否可忽略该版本
-  isIgnorable: boolean;
+  isIgnorable: boolean | undefined;
 
   //===========升级的信息=============//
   ///版本号
@@ -96,12 +121,18 @@ class UpdateEntity {
   ///下载地址
   downloadUrl: string;
   ///apk的大小
-  apkSize: number;
+  apkSize: number | undefined;
   ///apk文件的加密值（这里默认是md5值）
-  apkMd5: string;
+  apkMd5: string | undefined;
 
   //这5个值必须传
-  constructor(hasUpdate, versionCode, versionName, updateContent, downloadUrl) {
+  constructor(
+    hasUpdate: boolean,
+    versionCode: number,
+    versionName: string,
+    updateContent: string,
+    downloadUrl: string
+  ) {
     this.hasUpdate = hasUpdate;
     this.versionCode = versionCode;
     this.versionName = versionName;
@@ -140,16 +171,16 @@ const XUpdate = {
     });
   },
 
-  addErrorListener: (listener: Function) => {
+  addErrorListener: (listener: (...args: any[]) => any) => {
     EventEmitter.addListener(KEY_ERROR_EVENT, listener);
   },
 
-  removeErrorListener: (listener: Function) => {
+  removeErrorListener: (listener: (...args: any[]) => any) => {
     EventEmitter.removeListener(KEY_ERROR_EVENT, listener);
   },
 
   ///版本更新
-  update: (updateArgs = new UpdateArgs()) => {
+  update: (updateArgs: UpdateArgs) => {
     if (Platform.OS === 'ios') {
       return 'IOS端暂不支持';
     }
@@ -181,7 +212,7 @@ const XUpdate = {
   },
 
   ///直接传入UpdateEntity进行版本更新
-  updateByInfo: (updateArgs = new UpdateArgs(), updateEntity: UpdateEntity) => {
+  updateByInfo: (updateArgs: UpdateArgs, updateEntity: UpdateEntity) => {
     if (Platform.OS === 'ios') {
       return 'IOS端暂不支持';
     }
@@ -202,7 +233,7 @@ const XUpdate = {
     });
   },
 
-  showRetryUpdateTip: (retryContent, retryUrl) => {
+  showRetryUpdateTip: (retryContent: string, retryUrl: string) => {
     if (Platform.OS === 'ios') {
       return;
     }

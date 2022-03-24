@@ -1,7 +1,7 @@
 {
-  "name": "dianvo-native-android-xupdate",
+  "name": "react-native-android-xupdate",
   "version": "0.1.7",
-  "description": "git init",
+  "description": "xupdate library for react-native, base on official library with bug-fix.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/DeepRolling/dianvo-native-android-xupdate",
+  "repository": "https://github.com/DeepRolling/react-native-android-xupdate",
   "author": "deepcode <13121327906bxy@gmail.com> (https://github.com/DeepRolling)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DeepRolling/dianvo-native-android-xupdate/issues"
+    "url": "https://github.com/DeepRolling/react-native-android-xupdate/issues"
   },
-  "homepage": "https://github.com/DeepRolling/dianvo-native-android-xupdate#readme",
+  "homepage": "https://github.com/DeepRolling/react-native-android-xupdate#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
     "@react-native-community/eslint-config": "^2.0.0",

@@ -1,22 +1,18 @@
-# dianvo-native-android-xupdate
+# react-native-android-xupdate
 
-fix some bug and portability of react-native-xupdate
+fix some bug and portability of react-native-xupdate(official package of xupdate library)
 
 ## Installation
 
 ```sh
-npm install dianvo-native-android-xupdate
+yarn add dianvo-native-android-xupdate
 ```
 
 ## Usage
 
-```js
-import DianvoNativeAndroidXupdate from "dianvo-native-android-xupdate";
+see usage of official document:
 
-// ...
-
-const result = await DianvoNativeAndroidXupdate.multiply(3, 7);
-```
+https://github.com/xuexiangjys/react-native-xupdate
 
 ## Contributing
 
