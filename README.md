@@ -1,18 +1,16 @@
 # react-native-android-xupdate
 
-fix some bug and portability of react-native-xupdate(official package of xupdate library)
+Base on [official library](https://github.com/xuexiangjys/react-native-xupdate) with bug-fix.
 
 ## Installation
 
 ```sh
-yarn add dianvo-native-android-xupdate
+yarn add react-native-android-xupdate
 ```
 
 ## Usage
 
-see usage of official document:
-
-https://github.com/xuexiangjys/react-native-xupdate
+see usage of official document.
 
 ## Contributing
 
